@@ -1,20 +1,68 @@
-# import random
-
-# random_integer = random.randint(1, 10)
-# print(random_integer)
-
-# states_of_america = ["Delaware", "Pennsylvania", "New Jersey", "Georgia"]
-# print(states_of_america[0])
-
 import random
 
-# Split string method
-# names_string = input("Give me everybody's names, separated by a comma. ")
-# names = names_string.split(", ")
-# # 🚨 Don't change the code above 👆
+# random number generator -> assign to elements
+# conditional logic for what beats what
 
-# #Write your code below this line 👇
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
 
-# random_integer = random.randint(0, (len(names) - 1))
-# print(random_integer)
-# print(f"{names[random_integer]} is going to buy the meal today!")
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+#Write your code below this line 👇
+
+game_choice = [rock, paper, scissors]
+random_num = random.randint(0, (len(game_choice) - 1))
+computer_throw = random_num
+computer_choice = game_choice[computer_throw]
+
+# rock beats scissors
+# scissors beats paper
+# paper beats rock
+
+player_throw = int(input("What do you choose? Type: 0 for Rock, 1 for Paper, or 2 for Scissors."))
+player_choice = game_choice[player_throw]
+print("The computer: \n" + computer_choice)
+print("The player: \n" + player_choice)
+
+if player_throw == computer_throw:
+    print("It's a tie try again.")
+elif player_throw != computer_throw:
+    if player_throw == 0 and computer_throw == 1:
+        print("The computer has won!")
+    elif player_throw == 0 and computer_throw == 2:
+        print("You have won!")
+
+    if player_throw == 1 and computer_throw == 0:
+        print("You have won!")
+    elif player_throw == 1 and computer_throw == 2:
+        print("The computer has won!")
+
+    if player_throw == 2 and computer_throw == 0:
+        print("The computer has won!")
+    elif player_throw == 2 and computer_throw == 1:
+        print("You have won!")
+
+
+
