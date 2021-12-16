@@ -25,5 +25,5 @@ for x in range(0, nr_numbers):
     password_elements.append(numbers[rand_numbers])
 
 random.shuffle(password_elements)
-print("".join(password_elements))
+print(f"\nYour password is: {''.join(password_elements)}.")
     
