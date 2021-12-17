@@ -12,26 +12,24 @@ Check if player has remaining lives: Yes, you lose; No, back to start
 -------------------
 """
 
-#Step 1 
-
 import random
-
 word_list = ["aardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+display = []
 
-chosen_word = word_list[random.randint(0, len(word_list)) - 1]
+print(f'Pssst, the solution is {chosen_word}.')
+
+for letter in chosen_word:
+    display.append('_')
+
+print(display)
 
 guess = input("Guess a letter: \n").lower()
 
-for letter in range(0, len(chosen_word)):
-    if guess == chosen_word[letter]:
-        print('True')
-    elif guess != chosen_word[letter]:
-        print('False')
-
-
-
-
-
+for index, letter in enumerate(chosen_word):
+    if letter == guess:
+        display[index] = letter
+print(display)
 
 
 
