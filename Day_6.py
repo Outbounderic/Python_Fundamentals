@@ -13,23 +13,84 @@ Check if player has remaining lives: Yes, you lose; No, back to start
 """
 
 import random
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
 word_list = ["aardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list)
 display = []
+count = 0
+word_length = len(chosen_word)
+for _ in range(word_length):
+    display += "_"
+    count += 1
 
-print(f'Pssst, the solution is {chosen_word}.')
+while count > 0:
+    guess = input("Guess a letter: \n").lower()
 
-for letter in chosen_word:
-    display.append('_')
+    for position in range(word_length):
+        letter = chosen_word[position]
+        if letter == guess:
+            display[position] = letter
+            count -= 1
+    print(display)
+        
 
-print(display)
-
-guess = input("Guess a letter: \n").lower()
-
-for index, letter in enumerate(chosen_word):
-    if letter == guess:
-        display[index] = letter
-print(display)
 
 
 
