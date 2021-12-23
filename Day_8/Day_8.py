@@ -1,17 +1,4 @@
-
-# def prime_checker(number):
-#     divisibilty = []
-#     for x in range(number):
-#         if number % (x + 1) == 0:
-#             divisibilty.append(x + 1)
-#     if len(divisibilty) == 2:
-#         print("It's a prime number.")
-#     else:
-#         print("It's not a prime number.")
-#     print(divisibilty)
-
-# n = int(input("Check this number: "))
-# prime_checker(number=n)
+import collections
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
@@ -34,3 +21,8 @@ shift = int(input("Type the shift number:\n"))
     ##🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
 
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message.
+
+x = collections.deque(alphabet)
+
+def encrypt(text, shift):
+    print(text)
