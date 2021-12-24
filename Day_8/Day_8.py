@@ -8,34 +8,20 @@ shift = int(input("Type the shift number:\n"))
 
 cypher_alphabet = collections.deque(alphabet)
 
-def encrypt(plain_text, shift_amount):
-    cypher_alphabet.rotate(-shift_amount)
-    encrypted_text = []
+def caesar(current_direction, plain_text, shift_amount):
+    modified_text = []
+
+    if current_direction == "encode":
+        cypher_alphabet.rotate(-shift_amount)
+    elif current_direction == "decode":
+        cypher_alphabet.rotate(shift_amount)
+
     for letter in plain_text:
         for key in alphabet:
             if letter == key:
                 altered_letter = alphabet.index(letter)
-                encrypted_text.append(cypher_alphabet[altered_letter])
+                modified_text.append(cypher_alphabet[altered_letter])
                 
-    print(f"The encoded text is {''.join(encrypted_text)}")
+    print(f"The {current_direction}d text is {''.join(modified_text)}")
 
-  #TODO-2: Inside the 'decrypt' function, shift each letter of the 'text' *backwards* in the alphabet by the shift amount and print the decrypted text.  
-  #e.g. 
-  #cipher_text = "mjqqt"
-  #shift = 5
-  #plain_text = "hello"
-  #print output: "The decoded text is hello"
-
-
-#TODO-3: Check if the user wanted to encrypt or decrypt the message by checking the 'direction' variable. Then call the correct function based on that 'drection' variable. You should be able to test the code to encrypt *AND* decrypt a message.
-
-def decrypt(plain_text, shift_amount):
-    cypher_alphabet.rotate(-shift_amount)
-    decrypted_text = []
-    for letter in plain_text:
-        for key in alphabet:
-            if letter == key:
-                altered_letter = alphabet.index(letter)
-                decrypted_text.append(cypher_alphabet[altered_letter])
-                
-    print(f"The decoded text is {''.join(decrypted_text)}")
+caesar(direction, text, shift)
