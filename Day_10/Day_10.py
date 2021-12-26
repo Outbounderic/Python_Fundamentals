@@ -1,6 +1,9 @@
 # Functions with outputs
 
 def format_name(f_name, l_name):
+    """
+    Takes a first and last name and formats it to return a title case version of the name.
+    """
     if f_name == "" or l_name == "":
         return "You didn't provide valid inputs."
     else:
