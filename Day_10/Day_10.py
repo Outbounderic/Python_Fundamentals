@@ -1,8 +1,5 @@
 from art import logo
 
-continue_calculating = True
-
-
 def add(a, b):
     return a + b
 
@@ -22,20 +19,27 @@ operations = {
     "/": divide,
 }
 
-num1 = int(input("What's the first number?: "))
 
-for symbol in operations:
-    print(symbol)
+def calculator():
+    continue_calculating = True
+    num1 = int(input("What's the first number?: "))
 
-while continue_calculating:
-    operation_symbol = input("Pick and operation: ")
-    num2 = int(input("What's the next number?: "))
+    for symbol in operations:
+        print(symbol)
 
-    calculation_function = operations[operation_symbol]
-    answer = calculation_function(num1, num2)
-    num1 = answer
+    while continue_calculating:
+        operation_symbol = input("Pick an operation.: ")
+        num2 = int(input("What's the next number?: "))
 
-    print(f"{num1} {operation_symbol} {num2} = {answer}")
-    continue_with_answer = input(f"Type 'y' to continue with {answer}, or type 'n' to exit.: ")
-    if continue_with_answer == 'n':
-        continue_calculating = False
+        calculation_function = operations[operation_symbol]
+        answer = calculation_function(num1, num2)
+
+        print(f"{num1} {operation_symbol} {num2} = {answer}")
+        continue_with_answer = input(f"Type 'y' to continue with {answer}, or type 'n' to start a new calculation.: ")
+        if continue_with_answer == 'y':
+            num1 = answer
+        else:
+            continue_calculating = False
+            calculator()
+
+calculator()
