@@ -10,4 +10,6 @@ for i in question_data:
     question_bank.append(mod_data)
 
 new_q = QuizBrain(question_bank)
-new_q.next_question()
+
+while new_q.still_has_questions():
+    new_q.next_question()
