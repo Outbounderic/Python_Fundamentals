@@ -1,28 +1,29 @@
-from turtle import Turtle, Screen
+import turtle as t
+import random
 
-tim = Turtle()
+tim = t.Turtle()
+
+t.colormode(255)
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return (r, g, b)
+
+
 tim.shape("turtle")
-tim.color("blue", "green")
+tim.width(1)
+tim.speed(0)
+tim.tilt(10)
 
+def draw_spirograph(size_of_gap):
+    for _ in range(int(360 / size_of_gap)):
+        tim.pencolor(random_color())
+        tim.circle(100)
+        tim.setheading(tim.heading() + size_of_gap)
 
+draw_spirograph(7)
 
-def draw_shape(num_sides):
-    angle = 360 / num_sides
-    for _ in range(num_sides):
-        tim.forward(100)
-        tim.right(angle)
-
-for shape_side_n in range(3, 21):
-    draw_shape(shape_side_n)
-
-
-
-
-
-
-
-
-
-
-screen = Screen()
+screen = t.Screen()
 screen.exitonclick()
