@@ -14,13 +14,26 @@
 
 import pandas
 
-data = pandas.read_csv("weather_data.csv")
+# data = pandas.read_csv("weather_data.csv")
 # print(type(data))
 # print(type(data["temp"]))
 
-data_dict = data.to_dict()
+# data_dict = data.to_dict()
 # print(data_dict)
 
-temp_list = data["temp"].to_list()
+# temp_list = data["temp"].to_list()
 
-print(data[data.temp == data["temp"].max()])
+# print(data[data.temp == data["temp"].max()])
+
+# monday = data[data.day == "Monday"]
+# monday_temp = int(monday.temp)
+# monday_temp = monday_temp * 9/5 + 32
+# print(monday_temp)
+
+data_dict = {
+    "students": ["Amy", "James", "Angela"],
+    "scores": [76, 56, 65]
+}
+
+data = pandas.DataFrame(data_dict)
+data.to_csv("new_data.csv")
