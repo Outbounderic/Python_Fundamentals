@@ -68,15 +68,18 @@ def find_password():
     if len(website) == 0:
         messagebox.showinfo(title="Uh oh", message="It appears you forgot to fill out an entry.")
     else:
-        with open("data.json", "r") as data_file:                                                                                                                                       
-            data = json.load(data_file)
+        try:
+            with open("data.json", "r") as data_file:                                                                                                                                       
+                data = json.load(data_file)
 
-        if website in data:
-            found_data = data[website]
-            messagebox.showinfo(title=f"Found {website}", message=f"Email: {found_data['email']} \nPassword: {found_data['password']}")
-            pyperclip.copy(found_data['password'])                                                              
-        else:
-            messagebox.showinfo(title="Not Found", message="No details for the website exist.")                                                                            
+            if website in data:
+                found_data = data[website]
+                messagebox.showinfo(title=f"Found {website}", message=f"Email: {found_data['email']} \nPassword: {found_data['password']}")
+                pyperclip.copy(found_data['password'])                                                              
+            else:
+                messagebox.showinfo(title="Not Found", message="No details for the website exist.")
+        except FileNotFoundError:
+            messagebox.showinfo(title="No Data", message="You dont have any accounts stored yet.")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
