@@ -11,6 +11,7 @@ french_list_val = list(french_dictionary.values())
 
 def new_random_word():
     random_key = random.choice(french_list)
+    # Dont need if statement, should remove
     if random_key in french_list:
         position = french_list.index(random_key)
     canvas.itemconfig(word, text=f"{french_list_key[position]}")
