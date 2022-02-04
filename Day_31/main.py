@@ -3,10 +3,17 @@ import pandas
 import random
 
 BACKGROUND_COLOR = "#B1DDC6"
-
-data = pandas.read_csv("./data/french_words.csv")
-to_learn = data.to_dict(orient="records")
 current_card = {}
+to_learn = {}
+
+try:
+    data = pandas.read_csv("./data/words_to_learn.csv")
+except FileNotFoundError:
+    original_data = pandas.read_csv("./data/french_words.csv")
+    to_learn = original_data.to_dict(orient="records")
+else:
+    to_learn = data.to_dict(orient="records")
+
 
 def new_random_word():
     global current_card, flip_timer
@@ -21,6 +28,12 @@ def flip_card():
     canvas.itemconfig(card_title, text="English", fill="white")
     canvas.itemconfig(card_word, text=current_card["English"], fill="white")
     canvas.itemconfig(canvas_image, image=flash_card_back)
+
+def is_known():
+    to_learn.remove(current_card)
+    data = pandas.DataFrame(to_learn)
+    data.to_csv("./data/words_to_learn.csv", index=False)
+    new_random_word()
 
 window = Tk()
 window.title("Flash Card")
@@ -42,7 +55,7 @@ wrong_button = Button(image=wrong_button_image, highlightthickness=0, command=ne
 wrong_button.grid(row=1, column=0)
 
 right_button_image = PhotoImage(file="./images/right.png")
-right_button = Button(image=right_button_image, highlightthickness=0, command=new_random_word)
+right_button = Button(image=right_button_image, highlightthickness=0, command=is_known)
 right_button.grid(row=1, column=1)
 
 new_random_word()
