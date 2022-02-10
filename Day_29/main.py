@@ -34,7 +34,7 @@ def save():
     new_data = {
         website: {
             "email": email,
-            "password": password,
+            "password.py": password,
             }
         }
 
@@ -74,8 +74,8 @@ def find_password():
 
             if website in data:
                 found_data = data[website]
-                messagebox.showinfo(title=f"Found {website}", message=f"Email: {found_data['email']} \nPassword: {found_data['password']}")
-                pyperclip.copy(found_data['password'])                                                              
+                messagebox.showinfo(title=f"Found {website}", message=f"Email: {found_data['email']} \nPassword: {found_data['password.py']}")
+                pyperclip.copy(found_data['password.py'])
             else:
                 messagebox.showinfo(title="Not Found", message="No details for the website exist.")
         except FileNotFoundError:
