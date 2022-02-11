@@ -5,7 +5,7 @@ import datetime as dt
 import random
 
 my_email = "tomfizzlery@gmail.com"
-other_email = "heidi.zavros@southlakecarroll.edu"
+other_email = "tiddlefizzlery@yahoo.com"
 # password = "ijsshkqznzlhtuzz"
 # gmail = "smtp.gmail.com"
 # yahoo = "smtp.mail.yahoo.com"
