@@ -6,7 +6,7 @@ import random
 
 my_email = "tomfizzlery@gmail.com"
 other_email = "tiddlefizzlery@yahoo.com"
-# password = "ijsshkqznzlhtuzz"
+
 # gmail = "smtp.gmail.com"
 # yahoo = "smtp.mail.yahoo.com"
 
